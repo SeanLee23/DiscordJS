@@ -41,7 +41,7 @@ export class ExtendedClient extends Client {
 
         const slashCommands: ApplicationCommandDataResolvable[] = [];
         const commandFiles = await globPromise(
-            `${__dirname}/../commands/*/*{.ts,.js}`
+            `${__dirname}/../commands/ping.ts`
         );
         commandFiles.forEach(async (filePath) => {
             const command: CommandType = await this.importFile(filePath);
@@ -61,7 +61,7 @@ export class ExtendedClient extends Client {
 
         
         const eventFiles = await globPromise(
-            `${__dirname}/../events/*{.ts,.js}`
+            `${__dirname}/../events/ready.ts`
         );
         eventFiles.forEach(async (filePath) => {
             const event: Event<keyof ClientEvents> = await this.importFile(
